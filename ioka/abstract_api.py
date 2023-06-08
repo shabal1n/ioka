@@ -9,15 +9,25 @@ class AbstractAPI:
     @classmethod
     def call_api(self, method, url, **kwargs):
         headers = {"API-KEY": ioka.api_key, "Content-Type": "application/json"}
+        error = None
+        result = None
         try:
             response = requests.request(method, url, headers=headers, **kwargs)
             if response.content:
-                return self.json_to_object(response.json())
+                result = self.json_to_object(response.json())
             elif response.status_code == 204 and method == "delete":
-                return 'Success'
-            return response
-        except requests.exceptions.HTTPError as err:
-            raise SystemExit(err)
+                result = 'Success'
+        except requests.exceptions.ConnectionError as connection_error:
+            error = connection_error
+        except requests.exceptions.Timeout as timeout:
+            error = timeout
+        except requests.exceptions.HTTPError as http_error:
+            error = http_error
+        except requests.exceptions.RequestException as request_exception:
+            error = request_exception
+        if error:
+            raise Exception(error)
+        return result
     
     @classmethod
     def json_to_object(self, response):

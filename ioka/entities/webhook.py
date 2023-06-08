@@ -20,3 +20,7 @@ class Webhook(AbstractAPI):
     @classmethod
     def update_webhook_by_id(self, webhook_id: str, **kwargs):
         return self.patch(f"{ioka.hostname}{self.API_URL}/{webhook_id}", data=kwargs)
+    
+    @classmethod
+    def delete_webhook_by_id(self, webhook_id: str):
+        return self.delete(f"{ioka.hostname}{self.API_URL}/{webhook_id}")

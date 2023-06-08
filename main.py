@@ -14,5 +14,11 @@ ioka.api_key = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJleHAiOjE3OTUzNTE5NjQsIml
 # cards = ioka.Card.delete_card_by_id(customer_id='PLGZFIuF3p', card_id='jgHBB8k4Xv')
 
 #whk_UoIlCguMar
-webhooks = ioka.Webhook.update_webhook_by_id('whk_UoIlCguMar', url="test.com", events="order.created")
-print(webhooks)
+# webhooks = ioka.Webhook.get_webhooks()
+# webhooks = ioka.Webhook.create_webhook()
+# webhooks = ioka.Webhook.update_webhook_by_id('whk_UoIlCguMar', url="https://webhook.site/1b1b1b1b1-1b1n11b1g1g", events=["ORDER_EXPIRED"])
+# webhooks = ioka.Webhook.delete_webhook_by_id('whk_UoIlCguMar')
+
+# dashboards = ioka.Dashboard.search_dashboard_payments(from_dt='2023-03-10 00:00:00', to_dt='2023-04-20 00:00:00')
+
+# print(cards)
