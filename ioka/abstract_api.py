@@ -1,7 +1,6 @@
 from collections import namedtuple
 import requests
 import ioka
-import json
 
 
 class AbstractAPI:
