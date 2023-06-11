@@ -2,3 +2,7 @@
 env
 __pycache__/
 .env
+setup.py
+.eggs/
+ioka_python.egg-info/
+```

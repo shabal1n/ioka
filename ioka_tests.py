@@ -1,4 +1,3 @@
-from collections import namedtuple
 import unittest
 import ioka
 from dotenv import load_dotenv
